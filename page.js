@@ -3,13 +3,12 @@ var Page;
 
 Page = (function() {
 
-  function Page(x, y) {
-    this.x = x;
-    this.y = y;
+  function Page(postits) {
+    this.postits = postits != null ? postits : new Array;
   }
 
-  Page.prototype.pos = function() {
-    return "x:" + this.x + ",y:" + this.y;
+  Page.prototype.push = function(postit) {
+    return this.postits.push(postit);
   };
 
   return Page;

@@ -1,6 +1,10 @@
 body{
   background-color:#ddd;
+  margin:0px;
+  padding:0px;
 }
 canvas{
   background-color:#fff;
+  margin:0px;
+  padding:0px;
 }
