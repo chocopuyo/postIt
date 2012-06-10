@@ -1,10 +1,10 @@
 window.onload  = ->
   system = new System()
   system.page_add()
-  system.page_add()
-  system.page_add()
-  system.page_add()
-
+  add_button = document.getElementById('add_page')   
+  add_button.addEventListener 'click',(e)=>
+    system.page_add()
+  ,false
  ###
   page1 = new Page()
   page2 = new Page()

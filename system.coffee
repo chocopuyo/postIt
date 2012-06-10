@@ -2,7 +2,7 @@
 #@pagesにページを内包
 class System
   #クラス変数を定義
-  @margin_left = 10;@margin_top = 10#systemのマージン
+  @margin_left = 30;@margin_top = 30#systemのマージン
   @power=2.5 #倍率 
   @page_x = 20;@page_y = 50 #1ページ目の初期位置
   @page_size_width = 210*System.power; @page_size_height =297*System.power #ページ縦横幅

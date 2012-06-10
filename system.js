@@ -3,9 +3,9 @@ var System;
 
 System = (function() {
 
-  System.margin_left = 10;
+  System.margin_left = 30;
 
-  System.margin_top = 10;
+  System.margin_top = 30;
 
   System.power = 2.5;
 
