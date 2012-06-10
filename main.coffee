@@ -1,6 +1,11 @@
 window.onload  = ->
-  system = new System(100,100)
+  system = new System()
+  system.page_add()
+  system.page_add()
+  system.page_add()
+  system.page_add()
 
+ ###
   page1 = new Page()
   page2 = new Page()
   system.push page1
@@ -13,7 +18,7 @@ window.onload  = ->
   postit2 = new Postit(0,200)
   page2.push postit2
   system.draw()
-
+###
   #for key of system.pages
   #alert system.pages[key].pos()
 #drawPage = ->

@@ -1,0 +1,20 @@
+html{
+  height:100%;
+}
+body{
+  margin:0px;
+  padding:0px;
+  height:100%;
+  width:100%;
+}
+div#system{
+  height:100%;
+  width:100%;
+  background-color:#ddf;
+  position:relative;
+}
+h1{
+  font-size:220%;
+  border-left:solid 5px #55b;
+  border-bottom:solid 5px #55b;
+}

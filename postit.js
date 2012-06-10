@@ -3,11 +3,41 @@ var Postit;
 
 Postit = (function() {
 
-  function Postit(x, y, text) {
+  function Postit(x, y, page_number, text) {
+    var form, page, page_id, postit, textarea;
     this.x = x;
     this.y = y;
-    this.text = text != null ? text : 'test';
+    this.page_number = page_number;
+    this.text = text != null ? text : '何か入力してください';
+    this.postit_id = Math.random();
+    postit = document.createElement('div');
+    postit.style.backgroundColor = '#fff';
+    postit.style.left = this.x + 'px';
+    postit.style.top = this.y + 'px';
+    postit.style.position = 'absolute';
+    postit.style.border = 'solid 1px #000';
+    postit.style.padding = '2px';
+    postit.style.background = 'red';
+    postit.innerHTML = '☒';
+    form = document.createElement('form');
+    textarea = document.createElement('textarea');
+    textarea.value = this.text;
+    textarea.style.width = '200px';
+    textarea.style.height = '50px';
+    textarea.id = this.postit_id;
+    form.appendChild(textarea);
+    page_id = this.page_number;
+    page = document.getElementById(page_id);
+    postit.appendChild(form);
+    page.appendChild(postit);
   }
+
+  Postit.prototype.focus = function() {
+    var added_postit;
+    added_postit = document.getElementById(this.postit_id);
+    added_postit.focus();
+    return added_postit.select();
+  };
 
   return Postit;
 

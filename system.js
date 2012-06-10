@@ -3,41 +3,48 @@ var System;
 
 System = (function() {
 
-  System.power = 1.8;
+  System.margin_left = 10;
+
+  System.margin_top = 10;
+
+  System.power = 2.5;
 
   System.page_x = 20;
 
   System.page_y = 50;
 
-  System.page_size_width = 210;
+  System.page_size_width = 210 * System.power;
 
-  System.page_size_height = 297;
+  System.page_size_height = 297 * System.power;
 
   System.postit_size_width = 100;
 
   System.postit_size_height = 30;
 
   function System(x, y, pages) {
-    var canvas,
-      _this = this;
-    this.x = x;
-    this.y = y;
+    var system;
+    this.x = x != null ? x : 0;
+    this.y = y != null ? y : 0;
     this.pages = pages != null ? pages : new Array;
-    canvas = document.getElementById("postit");
-    canvas.addEventListener('mousedown', function(e) {
-      var postit, rect;
-      rect = canvas.getBoundingClientRect();
-      postit = new Postit(e.x - System.page_x - rect.left, e.y - System.page_y - rect.top);
-      _this.pages[0].push(postit);
-      return _this.draw();
-    }, false);
+    system = document.getElementById("system");
+    /*  
+        system.addEventListener('click',(e)=>
+      #  rect = system.getBoundingClientRect()
+      #postit = new Postit(e.x-System.page_x-rect.left,e.y-System.page_y-rect.top)
+      #@pages[0].push postit
+      #this.draw()
+    ,false)
+    */
+
   }
 
   System.prototype.pos = function() {
     return "x:" + this.x + ",y:" + this.y;
   };
 
-  System.prototype.push = function(page) {
+  System.prototype.page_add = function() {
+    var page;
+    page = new Page(System.margin_left + System.page_size_width * (this.pages.length % 2), System.margin_top + System.page_size_height * Math.floor(this.pages.length / 2), this.pages.length + 1);
     return this.pages.push(page);
   };
 
