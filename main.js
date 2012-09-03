@@ -6,9 +6,10 @@ window.onload = function() {
   system = new System();
   system.page_add();
   add_button = document.getElementById('add_page');
-  return add_button.addEventListener('click', function(e) {
+  add_button.addEventListener('click', function(e) {
     return system.page_add();
   }, false);
+  return system.list_view();
 };
 
 /*

@@ -7,7 +7,7 @@ System = (function() {
 
   System.margin_top = 30;
 
-  System.power = 2.5;
+  System.power = 0.5;
 
   System.page_x = 20;
 
@@ -44,34 +44,21 @@ System = (function() {
 
   System.prototype.page_add = function() {
     var page;
-    page = new Page(System.margin_left + System.page_size_width * (this.pages.length % 2), System.margin_top + System.page_size_height * Math.floor(this.pages.length / 2), this.pages.length + 1);
+    page = new Page(-(System.margin_left + System.page_size_width * (this.pages.length % 2)) + $(window).width() / 2, System.margin_top + System.page_size_height * Math.floor(this.pages.length / 2), this.pages.length + 1);
     return this.pages.push(page);
   };
 
-  System.prototype.draw = function() {
-    var canvas, ctx, key, num, page_x, page_y, postit, _results;
-    canvas = document.getElementById('postit');
-    if (!canvas || !canvas.getContext) {
-      return false;
-    }
-    ctx = canvas.getContext('2d');
-    ctx.beginPath();
-    _results = [];
-    for (key in this.pages) {
-      ctx.strokeRect((key % 2) * System.page_size_width * System.power + System.page_x, Math.floor(key / 2) * System.page_size_height * System.power + System.page_y, System.page_size_width * System.power, System.page_size_height * System.power);
-      _results.push((function() {
-        var _results1;
-        _results1 = [];
-        for (num in this.pages[key].postits) {
-          postit = this.pages[key].postits[num];
-          page_x = (key % 2) * System.page_size_width * System.power + System.page_x;
-          page_y = Math.floor(key / 2) * System.page_size_height * System.power + System.page_y;
-          _results1.push(ctx.strokeRect(postit.x + page_x, postit.y + page_y, System.postit_size_width * System.power, System.postit_size_height * System.power));
-        }
-        return _results1;
-      }).call(this));
-    }
-    return _results;
+  System.prototype.list_view = function() {
+    var list, system;
+    list = document.createElement('ul');
+    list.innerHTML = 'postIt list';
+    list.style.right = 0;
+    list.style.position = 'absolute';
+    list.style.width = '200px';
+    list.style.backgroundColor = '#fff';
+    list.id = 'post_it_list';
+    system = document.getElementById("system");
+    return system.appendChild(list);
   };
 
   return System;

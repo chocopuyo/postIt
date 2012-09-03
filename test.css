@@ -1,17 +1,3 @@
-html{
-  height:100%;
-}
-body{
-  background-color:#ddd;
-  margin:0px;
-  padding:0px;
-  height:100%;
-  width:100%;
-}
-div#postit{
-  background-color:#aff;
-  margin:0px;
-  padding:0px;
-  width:100%;
-  height:100%;
+#target{
+  background-color:#dad;
 }

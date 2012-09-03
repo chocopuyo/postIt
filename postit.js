@@ -4,7 +4,7 @@ var Postit;
 Postit = (function() {
 
   function Postit(x, y, page_number, text) {
-    var form, page, page_id, postit, textarea;
+    var form, list, page, page_id, postit, postit_li, textarea;
     this.x = x;
     this.y = y;
     this.page_number = page_number;
@@ -30,6 +30,13 @@ Postit = (function() {
     page = document.getElementById(page_id);
     postit.appendChild(form);
     page.appendChild(postit);
+    $(postit).draggable({
+      snap: true
+    });
+    list = document.getElementById("post_it_list");
+    postit_li = document.createElement('li');
+    postit_li.innerHTML = "・何か入力してください";
+    list.appendChild(postit_li);
   }
 
   Postit.prototype.focus = function() {

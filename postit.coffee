@@ -26,6 +26,14 @@ class Postit
     #要素をページに追加
     postit.appendChild form
     page.appendChild postit
+    $(postit).draggable({
+      snap:true
+    })
+    #listに追加
+    list = document.getElementById("post_it_list")
+    postit_li = document.createElement 'li'
+    postit_li.innerHTML = "・何か入力してください"
+    list.appendChild postit_li
   focus: ->
     #追加したpostitにフォーカスさせる
     #    (document.getElementById @postit_id).focus()

@@ -5,6 +5,9 @@ window.onload  = ->
   add_button.addEventListener 'click',(e)=>
     system.page_add()
   ,false
+
+
+  system.list_view()
  ###
   page1 = new Page()
   page2 = new Page()

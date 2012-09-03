@@ -4,26 +4,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
   <head>
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css">
-    <link rel="stylesheet" type="text/css" href="base.css">
+    <link rel="stylesheet" type="text/css" href="test.css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Language" content="ja" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <meta http-equiv="Content-Script-Type" content="text/javascript" />
     <title>PostIt</title>
     <!--[if IE]><script type="text/javascript" src="excanvas.js"></script><![endif]-->
-    <script type="text/javascript" src="./system.js"></script>
-    <script type="text/javascript" src="./page.js"></script>
-    <script type="text/javascript" src="./postit.js"></script>
-    <script type="text/javascript" src="./main.js"></script>
     <script type="text/javascript" src="./js/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="./js/jquery-ui-1.8.22.custom.min.js"></script>
-    <script type="text/javascript" src="./js/jquery.ui.draggable.js"></script>
-    <script type="text/javascript" src="./js/jquery.ui.droppable.js"></script>
     <!--    <script type="text/javascript" src="http://jashkenas.github.com/coffee-script/extras/coffee-script.js"></script>-->
   </head>
   <body>
-    <div id ="system">
-      <button id="add_page">ページ追加</button>
-    </div>
-  </body>
-</html>
+
+    <div id='target'>ドラッグ可能</div>
+    <div id='goal'>ドロップ可能</div>
+    <script type="text/javascript">
+      $('#target').draggable();
+      $('#goal').droppable({
+          accept:'#target',
+drop: function() { alert('dropped'); }
+});
+</script>
+
+    </body>
+  </html>
